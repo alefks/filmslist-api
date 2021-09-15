@@ -1,5 +1,6 @@
 const Film = require("../models/Film");
 
+
 const getAll = async (req, res) => {
     try {
       const films = await Film.find(); // Promisse
@@ -12,6 +13,8 @@ const getAll = async (req, res) => {
       res.status(500).send({ error: err.message });
     }
   };
+
+  ////////////////////////////////////////////////
   
   const getById = async (req, res) => {
     const { id } = req.params;
@@ -27,6 +30,8 @@ const getAll = async (req, res) => {
       res.status(500).send({ error: err.message });
     }
   };
+
+  //////////////////////////////////////////////////
   
   const create = async (req, res) => {
     const { name, running_time, genre, director, synopsis } = req.body;
@@ -55,6 +60,8 @@ const getAll = async (req, res) => {
       res.status(500).send({ error: err.message });
     }
   };
+
+  ////////////////////////////////////////////////
   
   const update = async (req, res) => {
     const { name, running_time, genre, director, synopsis } = req.body;
@@ -79,6 +86,8 @@ const getAll = async (req, res) => {
       res.status(500).send({ error: err.message });
     }
   };
+
+  ////////////////////////////////////////////////////////////
   
   const del = async (req, res) => {
     try {
@@ -88,6 +97,8 @@ const getAll = async (req, res) => {
       return res.status(500).send({ erro: err.message });
     }
   };
+
+  //////////////////////////////////////////////////////////
   
   const filterByName = async (req, res) => {
     const name = req.query.name;
@@ -102,6 +113,8 @@ const getAll = async (req, res) => {
       return res.status(500).send({ error: err.message });
     }
   };
+
+  //////////////////////////////////////////////////
   
   const filterAll = async (req, res) => {
     let { name, running_time, genre, director, synopsis } = req.query;
@@ -129,6 +142,8 @@ const getAll = async (req, res) => {
       return res.status(500).send({ error: err.message });
     }
   };
+
+  /////////////////////////////////////////////////////
   
   module.exports = {
     getAll,
