@@ -31,9 +31,9 @@ const getById = async (req, res) => {
 //////////////////////////////////////////////////
 
 const create = async (req, res) => {
-  const { name, running_time, genre, director, synopsis } = req.body;
+  const { name, year, running_time, genre, director, synopsis } = req.body;
 
-  if (!name || !running_time || !genre || !director || !synopsis) {
+  if (!name || !year || !running_time || !genre || !director || !synopsis) {
     res.status(400).send({
       message: "Please, verify every thing you entered.",
     });
@@ -42,6 +42,7 @@ const create = async (req, res) => {
 
   const newFilm = await new Film({
     name,
+    year,
     running_time,
     genre,
     director,
@@ -61,9 +62,9 @@ const create = async (req, res) => {
 ////////////////////////////////////////////////
 
 const update = async (req, res) => {
-  const { name, running_time, genre, director, synopsis } = req.body;
+  const { name, year, running_time, genre, director, synopsis } = req.body;
 
-  if (!name || !running_time || !genre || !director || !synopsis) {
+  if (!name || !year || !running_time || !genre || !director || !synopsis) {
     res.status(400).send({
       message:
         "Something went wrong while trying to update existed film. Please, verify every thing you entered.",
@@ -72,6 +73,7 @@ const update = async (req, res) => {
   }
 
   res.film.name = name;
+  res.film.year = year;
   res.film.running_time = running_time;
   res.film.genre = genre;
   res.film.director = director;
@@ -101,7 +103,7 @@ const del = async (req, res) => {
 const filterByName = async (req, res) => {
   const name = req.query.name;
   if (!name) {
-    res.status(400).send({ erro: "Parameter not received." });
+    res.status(400).send({ erro: "Please, enter the film's name." });
     return;
   }
   try {
