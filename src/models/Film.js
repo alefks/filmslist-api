@@ -4,22 +4,27 @@ const filmSchema = new mongoose.Schema({
   name: {
     type: String,
     require: true,
-    lowercase: true
+    lowercase: true,
+  },
+  year: {
+    type: Number,
+    require: true,
+    lowercase: true,
   },
   running_time: {
     type: String,
     require: true,
-    lowercase: true
+    lowercase: true,
   },
   genre: {
     type: String,
     require: true,
-    lowercase: true
+    lowercase: true,
   },
   director: {
     type: String,
     require: true,
-    lowercase: true
+    lowercase: true,
   },
   synopsis: {
     type: String,
