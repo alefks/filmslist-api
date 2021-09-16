@@ -6,29 +6,16 @@ const FilmMiddleware = require("../middlewares/FilmMiddlewares");
 routes.get("/films", FilmController.getAll);
 
 // GET BY ID
-routes.get(
-  "/films/:id",
-  FilmMiddleware.verifyID,
-  FilmController.getById
-);
+routes.get("/films/:id", FilmMiddleware.verifyID, FilmController.getById);
 
 // CREATE
 routes.post("/films/create", FilmController.create);
 
 // UPDATE
-routes.put(
-  "/films/:id",
-  FilmMiddleware.verifyID,
-  FilmController.update
-);
-
+routes.put("/films/update/:id", FilmMiddleware.verifyID, FilmController.update);
 
 // DELETE
-routes.delete(
-  "/films/:id",
-  FilmMiddleware.verifyID,
-  FilmController.del
-);
+routes.delete("/films/delete/:id", FilmMiddleware.verifyID, FilmController.del);
 
 // FILTERS
 routes.get("/filterByName", FilmController.filterByName);
