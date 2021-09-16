@@ -13,10 +13,10 @@ const port = process.env.DB_PORT || process.env.PORT;
   app.use(express.json());
 
   // Liberar o CORS em todas as requisições
-//   app.use(cors());
+  app.use(cors());
 
   // Ativar todos os pre-flights
-//   app.options("*", cors());
+  app.options("*", cors());
 
   app.use(routes);
 
