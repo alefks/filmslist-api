@@ -7,7 +7,7 @@ const routes = require("./src/routes/routes");
 const cors = require("cors");
 
 const app = express();
-const port = process.env.DB_PORT;
+const port = process.env.DB_PORT || process.env.PORT;
 
 (async () => {
   app.use(express.json());
