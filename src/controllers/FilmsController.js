@@ -117,9 +117,10 @@ const filterByName = async (req, res) => {
 //////////////////////////////////////////////////
 
 const filterAll = async (req, res) => {
-  let { name, running_time, genre, director, synopsis } = req.query;
+  let { name, year, running_time, genre, director, synopsis } = req.query;
 
   !name ? (name = "") : (name = name);
+  !year ? (year = "") : (year = year);
   !running_time ? (running_time = "") : (running_time = running_time);
   !genre ? (genre = "") : (genre = genre);
   !director ? (director = "") : (director = director);
@@ -128,6 +129,7 @@ const filterAll = async (req, res) => {
   try {
     const films = await Film.find({
       name: { $regex: `${name}`, $options: "i" },
+      year: { $regex: `${year}`, $options: "i"},
       running_time: { $regex: `${running_time}`, $options: "i" },
       genre: { $regex: `${genre}`, $options: "i" },
       director: { $regex: `${director}`, $options: "i" },
