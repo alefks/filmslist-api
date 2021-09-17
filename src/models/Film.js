@@ -7,7 +7,7 @@ const filmSchema = new mongoose.Schema({
     lowercase: true,
   },
   year: {
-    type: Number,
+    type: String,
     require: true,
     lowercase: true,
   },
